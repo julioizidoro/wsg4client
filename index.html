@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<title>[P&oacute;s-SENAI] - WebServices - Grupo 4</title>
+		
+		<link href="css/sticky-footer.css" rel="stylesheet">
+		
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		
+		<!-- DataTables -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css" />
+		<script type="text/javascript" charset="utf8" src="js/jquery.dataTables.min.js"></script>
+		<!---------------->
+	</head>
+	
+	<body>
+		    <!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<h1>SENAI Run</h1>
+				<h3>Associa&ccedil;&atilde;o Amigos do Cora&ccedil;&atilde;o</h3>
+			</div>
+		</nav>	
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<table id="runs" class="display">
+						<thead>
+							<tr>
+								<th>Corrida</th>
+								<th>Data</th>
+								<th>Cidade</th>
+								<th>Valor</th>
+							</tr>
+						</thead>
+					</table>
+				</div>	
+					
+			</div>	
+		</div>
+		
+		
+		<footer class="footer">
+			<div class="container">
+				<p>Trabalho do Curso de P&oacute;s Gradua&ccedil;&atilde;o em Sistemas WEB e Dispositivos M&oacute;veis</p>
+				<p>SENAI-SC - Disciplina WebServices - Grupo 4</p>
+			</div>
+		</footer>
+	</body>
+	
+	<script>
+
+	$(document).ready(function() {
+        var oTable = $('#runs').dataTable( {
+            "bProcessing": false,
+		    "sAjaxSource": "http://localhost/wsg4server/corridas",
+            "sAjaxDataProp": "corridas",
+            "aoColumns": [
+			     { "mDataProp": "data" },
+			     { "mDataProp": "nome" },
+			     { "mDataProp": "cidade" },
+			     { "mDataProp": "valorinscricao" }
+            ],
+            language: {
+                "emptyTable":     "Nenhum dado dispon&iacute;vel na tabela",
+                "info":           "Exibindo _START_ a _END_ de _TOTAL_ registros",
+                "infoEmpty":      "Exibindo 0 a 0 de 0 registros",
+                "infoFiltered":   "(filtrado de _MAX_ rogistros)",
+                "infoPostFix":    "",
+                "thousands":      ",",
+                "lengthMenu":     "Exibir _MENU_ registros",
+                "loadingRecords": "Carregando...",
+                "processing":     "Processando...",
+                "search":         "Busca:",
+                "zeroRecords":    "Nenhum registro encontrado",
+                "paginate": {
+                    "first":      "Primeiro",
+                    "last":       "&Uacute;ltimo",
+                    "next":       "Pr&oacute;ximo",
+                    "previous":   "Anterior"
+                },
+                "aria": {
+                    "sortAscending":  ": ative para classificar ascendente",
+                    "sortDescending": ": ative para classificar descendente"
+                }
+            }
+	   } );
+	});
+
+	</script>
+	
+	
+	
+</html>
