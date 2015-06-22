@@ -3,7 +3,8 @@
 		<title>[P&oacute;s-SENAI] - WebServices - Grupo 4</title>
 		
 		<link href="css/sticky-footer.css" rel="stylesheet">
-		
+		<link href="css/site.css" rel="stylesheet">
+				
 		<script src="js/jquery-2.1.4.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		
@@ -17,27 +18,26 @@
 		    <!-- Fixed navbar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
-				<h1>SENAI Run</h1>
-				<h3>Associa&ccedil;&atilde;o Amigos do Cora&ccedil;&atilde;o</h3>
-			</div>
+                <div><img src="images/coracaoforte.jpg" /></div>
+				<div>
+                    <h1>SENAI Run</h1>
+				    <h3>Associa&ccedil;&atilde;o Amigos do Cora&ccedil;&atilde;o</h3>
+                </div>
+            </div>
 		</nav>	
 		
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<table id="runs" class="display">
-						<thead>
-							<tr>
-								<th>Corrida</th>
-								<th>Data</th>
-								<th>Cidade</th>
-								<th>Valor</th>
-							</tr>
-						</thead>
-					</table>
-				</div>	
-					
-			</div>	
+            <h2>Pr&oacute;ximas Corridas</h2>
+            <table id="runs" class="display">
+				<thead>
+					<tr>
+			            <th>Corrida</th>
+						<th>Data</th>
+						<th>Cidade</th>
+						<th>Valor</th>
+					</tr>
+				</thead>
+			</table>
 		</div>
 		
 		
@@ -54,7 +54,7 @@
 	$(document).ready(function() {
         var oTable = $('#runs').dataTable( {
             "bProcessing": false,
-		    "sAjaxSource": "http://localhost/wsg4server/corridas",
+		    "sAjaxSource": "http://ceolato.com.br/wsg4server/corridas",
             "sAjaxDataProp": "corridas",
             "aoColumns": [
 			     { "mDataProp": "data" },

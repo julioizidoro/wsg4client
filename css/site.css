@@ -1,0 +1,30 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+nav {
+    color: red;
+    min-height: 130px;
+}
+
+nav h1{
+    font-size: 310%;  
+    margin: 0px;
+}
+
+nav h3{
+    font-size: 120%;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+img {
+    float:left;
+    margin-right: 10px;
+}
+
+h2 {
+    font-size: 200%;
+    text-align: center;   
+}
