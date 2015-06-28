@@ -1,0 +1,60 @@
+<h2>Cliente</h2>
+<div ng-init="loadRow()">
+    <form name="form" class="form-horizontal" ng-show="row!=null">
+	
+        <div class="control-group">
+            <label class="control-label">ID:</label>
+            <div class="controls">
+                <input name="idcorrida" type="text" ng-model="row.idcorrida" class="input-small" required ng-disabled="row.isUpdate" />
+                <span class="help-inline text-error" ng-show="form.idcorrida.$dirty && form.idcorrida.$invalid">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Corrida:</label>
+            <div class="controls">
+                <input name="nome" required type="text" ng-model="row.nome" class="input-xxlarge" />
+                <span class="help-inline text-error" ng-show="form.nome.$dirty && form.nome.$invalid">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Data:</label>
+            <div class="controls">
+                <input name="data" ng-model="row.data" type="text" />
+                <span class="help-inline text-error" ng-show="form.data.$dirty && form.data.$invalid">
+                        <span>Data inválida</span>
+                </span>
+            </div>
+        </div>				
+        <div class="control-group">
+            <label class="control-label">Cidade:</label>
+            <div class="controls">
+                <input type="text" ng-model="row.cidade" />
+            </div>
+        </div>		
+        <div class="control-group">
+            <label class="control-label">Estado:</label>
+            <div class="controls">
+                <input type="text" ng-model="row.estado" class="input-small" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Cidade:</label>
+            <div class="controls">
+                <input type="text" ng-model="row.cidade" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Valor Inscriç&ccedil;&atilde;o:</label>
+            <div class="controls">
+                <input type="text" ng-model="row.valorinscricao" />
+            </div>
+        </div>
+
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary" ng-click="save()" ng-Disabled="form.$invalid">Salvar</button>
+			<a href="#/corridas" class="btn">Voltar</a>
+		</div>
+	</form>
+	<button class="btn btn-danger pull-right" ng-click="del()">Apagar</button>
+</div>
