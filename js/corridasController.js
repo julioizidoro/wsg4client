@@ -1,5 +1,7 @@
 $app.controller('corridasController',function ($scope,$http,$routeParams,$location) {
 
+	var restCorrida = "runs";
+
 	//lista de corridas
 	$scope.rows = null;
 
@@ -17,25 +19,25 @@ $app.controller('corridasController',function ($scope,$http,$routeParams,$locati
 	//Carrega todas as corridas
 	$scope.loadAll = function(){
 		$scope.showLoader();
-		$http.get($scope.server("/corridas")).success(function(data){
-			$scope.rows = data.corridas;	
+		$http.get($scope.server("/" + restCorrida)).success(function(data){
+			$scope.rows = data.wine;	
 			$scope.hideLoader();
 		});
 	};
 
 	//Carrega proximas corridas
-	$scope.loadNext = function(){
-		$scope.showLoader();
-		$http.get($scope.server("/corridas/proximas")).success(function(data){
-			$scope.rows = data.corridas;	
-			$scope.hideLoader();
-		});
-	};
+	//$scope.loadNext = function(){
+	//	$scope.showLoader();
+	//	$http.get($scope.server("/corridas/proximas")).success(function(data){
+	//		$scope.rows = data.corridas;	
+	//		$scope.hideLoader();
+	//	});
+	//};
 	
 	$scope.loadRow = function(){
 		if ($routeParams.id!=null){
 			$scope.showLoader();
-			$http.get($scope.server("/corridas/"+$routeParams.id)).success(function(data){
+			$http.get($scope.server("/" + restCorrida + "/" + $routeParams.id)).success(function(data){
 				$scope.row = data;
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();
@@ -54,13 +56,13 @@ $app.controller('corridasController',function ($scope,$http,$routeParams,$locati
 		$scope.showLoader();
 		console.log("ID: "+$routeParams.id);
 		if ($routeParams.id==null){//Criando um registro
-			$http.post($scope.server("/corridas"),$scope.row).success(function(data){
+			$http.post($scope.server("/" + restCorrida),$scope.row).success(function(data){
 				alert("Salvo com sucesso");
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();
 			});
 		} else {//Atualizando um registro
-			$http.put($scope.server("/corridas/"+$routeParams.id),$scope.row).success(function(data){
+			$http.put($scope.server("/" + restCorrida + "/" + $routeParams.id),$scope.row).success(function(data){
 				alert("Salvo com sucesso");
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();			
@@ -70,7 +72,7 @@ $app.controller('corridasController',function ($scope,$http,$routeParams,$locati
 
 	$scope.del = function(){
 		if (confirm("Deseja excluir: " + $scope.row.nome + "?")){
-			$http.delete($scope.server("/corridas/"+$routeParams.id)).success(function(s){
+			$http.delete($scope.server("/" + restCorrida + "/" + $routeParams.id)).success(function(s){
 				$scope.hideLoader();
 				alert("Excluído com sucesso");
 				$location.path("/corridas");

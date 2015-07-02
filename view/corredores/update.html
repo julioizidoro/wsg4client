@@ -2,11 +2,10 @@
 <div ng-init="loadRow()">
     <form name="form" class="form-horizontal" ng-show="row!=null">
 	
-        <div class="control-group">
+        <div class="control-group" style="display: none;">
             <label class="control-label">ID:</label>
             <div class="controls">
-                <input name="idcorredor" type="text" ng-model="row.idcorredor" class="input-small" required ng-disabled="row.isUpdate" />
-                <span class="help-inline text-error" ng-show="form.idcorredor.$dirty && form.idcorredor.$invalid">Campo obrigatório</span>
+                <input name="idcorredor" type="text" ng-model="row.idcorredor" class="input-small" />
             </div>
         </div>
         <div class="control-group">

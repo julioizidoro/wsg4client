@@ -1,5 +1,7 @@
 $app.controller('corredoresController',function ($scope,$http,$routeParams,$location) {
 
+	var restCorredores = "runners";
+
 	//lista de corredores
 	$scope.rows = null;
 
@@ -16,7 +18,7 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 
 	$scope.loadAll = function(){
 		$scope.showLoader();
-		$http.get($scope.server("/corredores")).success(function(data){
+		$http.get($scope.server("/" + restCorredores)).success(function(data){
 			$scope.rows = data.corredores;	
 			$scope.hideLoader();
 		});
@@ -25,7 +27,7 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 	$scope.loadRow = function(){
 		if ($routeParams.id!=null){
 			$scope.showLoader();
-			$http.get($scope.server("/corredores/"+$routeParams.id)).success(function(data){
+			$http.get($scope.server("/" + restCorredores + "/" + $routeParams.id)).success(function(data){
 				$scope.row = data;
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();
@@ -43,13 +45,13 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 	$scope.save = function(){
 		$scope.showLoader();
 		if ($routeParams.id==null){//Criando um registro
-			$http.post($scope.server("/corredores"),$scope.row).success(function(data){
+			$http.post($scope.server("/" + restCorredores),$scope.row).success(function(data){
 				alert("Salvo com sucesso");
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();
 			});
 		} else {//Atualizando um registro
-			$http.put($scope.server("/corredores/"+$routeParams.id),$scope.row).success(function(data){
+			$http.put($scope.server("/" + restCorredores + "/" + $routeParams.id),$scope.row).success(function(data){
 				alert("Salvo com sucesso");
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();			

@@ -1,5 +1,5 @@
 //URL de acesso ao servidor RESTful
-SERVER_URL = "http://ceolato.com.br/wsg4server";
+SERVER_URL = "http://107.191.109.96/SenaiRunner";
 
 //Criação ao $app que é o modulo que representa toda a aplicação
 $app = angular.module('wsg4client', ['ngResource']);

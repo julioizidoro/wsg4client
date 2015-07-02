@@ -2,11 +2,10 @@
 <div ng-init="loadRow()">
     <form name="form" class="form-horizontal" ng-show="row!=null">
 	
-        <div class="control-group">
+        <div class="control-group" style="display: none;">
             <label class="control-label">ID:</label>
             <div class="controls">
-                <input name="idcorrida" type="text" ng-model="row.idcorrida" class="input-small" required ng-disabled="row.isUpdate" />
-                <span class="help-inline text-error" ng-show="form.idcorrida.$dirty && form.idcorrida.$invalid">Campo obrigatório</span>
+                <input name="idcorrida" type="text" ng-model="row.idcorrida" />
             </div>
         </div>
         <div class="control-group">
@@ -38,13 +37,13 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">Cidade:</label>
+            <label class="control-label">Descri&ccedil;&atilde;o</label>
             <div class="controls">
-                <input type="text" ng-model="row.cidade" />
+                <input type="text" ng-model="row.descricao" />
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">Valor Inscriç&ccedil;&atilde;o:</label>
+            <label class="control-label">Valor Inscri&ccedil;&atilde;o:</label>
             <div class="controls">
                 <input type="text" ng-model="row.valorinscricao" />
             </div>
