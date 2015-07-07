@@ -45,7 +45,7 @@ $app.controller('corridasController',function ($scope,$http,$routeParams,$locati
 		}
 		else {
 			$scope.row = {}
-			$scope.row.idcorrida = null;
+			$scope.row.id = null;
 			$scope.row.isUpdate = false;
 			$scope.hideLoader();
 		}

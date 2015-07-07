@@ -5,7 +5,7 @@
         <div class="control-group" style="display: none;">
             <label class="control-label">ID:</label>
             <div class="controls">
-                <input name="idcorredor" type="text" ng-model="row.idcorredor" class="input-small" />
+                <input name="id" type="text" ng-model="row.id" class="input-small" />
             </div>
         </div>
         <div class="control-group">
@@ -18,8 +18,8 @@
         <div class="control-group">
             <label class="control-label">Data Nascimento:</label>
             <div class="controls">
-                <input name="datanascimento" ng-model="row.datanascimento" type="text" />
-                <span class="help-inline text-error" ng-show="form.datanascimento.$dirty && form.datanascimento.$invalid">
+                <input name="dataNasc" ng-model="row.dataNasc" type="text" />
+                <span class="help-inline text-error" ng-show="form.dataNasc.$dirty && form.dataNasc.$invalid">
                         <span>Data inválida</span>
                 </span>
             </div>
@@ -40,8 +40,8 @@
             <label class="control-label">Status:</label>
             <div class="controls">
 				<select ng-model="row.status">
-					<option value="ativo">Ativo</option>
-					<option value="inativo">Inativo</option>
+					<option value="1">Ativo</option>
+					<option value="0">Inativo</option>
 				</select>
             </div>
         </div>
@@ -49,7 +49,7 @@
 
 		<div class="form-actions">
 			<button type="submit" class="btn btn-primary" ng-click="save()" ng-Disabled="form.$invalid">Salvar</button>
-			<a href="#/corredores" class="btn">Voltar</a>
+			<a href="#/corredores" class="btn" ng-click="loadAll()">Voltar</a>
 		</div>
 	</form>
 	<button class="btn btn-danger pull-right" ng-click="del()">Apagar</button>

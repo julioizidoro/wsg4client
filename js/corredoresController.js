@@ -19,7 +19,7 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 	$scope.loadAll = function(){
 		$scope.showLoader();
 		$http.get($scope.server("/" + restCorredores)).success(function(data){
-			$scope.rows = data.corredores;	
+			$scope.rows = data.reply;	
 			$scope.hideLoader();
 		});
 	};
@@ -35,7 +35,7 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 		}
 		else {
 			$scope.row = {}
-			$scope.row.idcorrida = null;
+			$scope.row.id = null;
 			$scope.row.isUpdate = false;
 			$scope.hideLoader();
 		}
@@ -55,6 +55,17 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 				alert("Salvo com sucesso");
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();			
+			});
+		}
+	};
+	
+	$scope.del = function(){
+		$scope.showLoader();
+		if ($routeParams.id!=null){
+			$http.delete($scope.server("/" + restCorredores + "/" + $routeParams.id)).success(function(data){
+				alert("Excluído com sucesso");
+				$scope.hideLoader();
+				$location.path("/corridas");
 			});
 		}
 	};

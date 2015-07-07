@@ -14,6 +14,10 @@ $app.config(function ($routeProvider, $httpProvider) {
 		when('/corredores', {templateUrl: 'view/corredores/main.html', controller: 'corredoresController'}).
 		when('/corredores/novo', {templateUrl: 'view/corredores/update.html', controller: 'corredoresController'}).
 		when('/corredores/:id', {templateUrl: 'view/corredores/update.html', controller: 'corredoresController'}).
+		when('/inscricoes', {templateUrl: 'view/inscricoes/corridas.html', controller: 'inscricoesController'}).
+		when('/inscricoes/:corrida/corredores', {templateUrl: 'view/inscricoes/main.html', controller: 'inscricoesController'}).		
+		when('/inscricoes/:corrida/corredores/nova', {templateUrl: 'view/inscricoes/update.html', controller: 'inscricoesController'}).		
+		when('/inscricoes/:corrida/corredores/:corredor', {templateUrl: 'view/inscricoes/update.html', controller: 'inscricoesController'}).
 		otherwise({redirectTo: '/'});
 		
 	//configura o RESPONSE interceptor, usado para exibir o ícone de acesso ao servidor
@@ -28,11 +32,11 @@ $app.config(function ($routeProvider, $httpProvider) {
 			},
 			function (response) {
 				// do something on error
-                $data = response.data;
+				$data = response.data;
                 $error = $data.error;
-                console.error($data);
                 if ($error && $error.text) {
-                    alert("ERROR: " + $error.text);
+                    alert($error.text);
+					return (response);
                 } else {
                     if (response.status === 404) {
                         alert("Erro ao acessar servidor. Página não encontrada.");

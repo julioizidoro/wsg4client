@@ -13,15 +13,17 @@
 				<th>Cidade</th>
 				<th>Estado</th>
 				<th>Inscri&ccedil;&atilde;o</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="row in rows | startFrom: currentPage*pageSize| limitTo: pageSize">
-				<td><a href='#/corridas/{{row.idcorrida}}'>{{row.nome}}</a></td>
+				<td><a href='#/corridas/{{row.id}}'>{{row.nome}}</a></td>
 				<td>{{row.data}}</td>
 				<td>{{row.cidade}}</td>
 				<td>{{row.estado}}</td>
-				<td>{{row.valorinscricao}}</td>
+				<td>{{row.vlrInscricao}}</td>
+				<td>{{row.status}}</td>
 			</tr>
 		</tbody>
 	</table>

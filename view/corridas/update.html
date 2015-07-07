@@ -5,7 +5,7 @@
         <div class="control-group" style="display: none;">
             <label class="control-label">ID:</label>
             <div class="controls">
-                <input name="idcorrida" type="text" ng-model="row.idcorrida" />
+                <input name="id" type="text" ng-model="row.id" />
             </div>
         </div>
         <div class="control-group">
@@ -45,10 +45,18 @@
         <div class="control-group">
             <label class="control-label">Valor Inscri&ccedil;&atilde;o:</label>
             <div class="controls">
-                <input type="text" ng-model="row.valorinscricao" />
+                <input type="text" ng-model="row.vlrInscricao" />
             </div>
         </div>
-
+        <div class="control-group">
+            <label class="control-label">Status:</label>
+            <div class="controls">
+				<select ng-model="row.status">
+					<option value="1">Ativa</option>
+					<option value="0">Inativa</option>
+				</select>
+            </div>
+        </div>
 
 		<div class="form-actions">
 			<button type="submit" class="btn btn-primary" ng-click="save()" ng-Disabled="form.$invalid">Salvar</button>
