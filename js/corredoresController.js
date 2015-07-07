@@ -11,15 +11,15 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 	//Pagination
 	$scope.currentPage = 0;
 	$scope.pageSize = 10;
-	
+
 	$scope.numberOfPages = function(){
-		return Math.ceil($scope.rows.length/$scope.pageSize);                
+		return Math.ceil($scope.rows.length/$scope.pageSize);
 	};
 
 	$scope.loadAll = function(){
 		$scope.showLoader();
 		$http.get($scope.server("/" + restCorredores)).success(function(data){
-			$scope.rows = data.reply;	
+			$scope.rows = data.reply;
 			$scope.hideLoader();
 		});
 	};
@@ -46,26 +46,25 @@ $app.controller('corredoresController',function ($scope,$http,$routeParams,$loca
 		$scope.showLoader();
 		if ($routeParams.id==null){//Criando um registro
 			$http.post($scope.server("/" + restCorredores),$scope.row).success(function(data){
-				alert("Salvo com sucesso");
 				$scope.row.isUpdate = true;
 				$scope.hideLoader();
+				$location.path("/corredores");
 			});
 		} else {//Atualizando um registro
 			$http.put($scope.server("/" + restCorredores + "/" + $routeParams.id),$scope.row).success(function(data){
-				alert("Salvo com sucesso");
 				$scope.row.isUpdate = true;
-				$scope.hideLoader();			
+				$scope.hideLoader();
+				$location.path("/corredores");
 			});
 		}
 	};
-	
+
 	$scope.del = function(){
 		$scope.showLoader();
 		if ($routeParams.id!=null){
 			$http.delete($scope.server("/" + restCorredores + "/" + $routeParams.id)).success(function(data){
-				alert("Excluído com sucesso");
 				$scope.hideLoader();
-				$location.path("/corridas");
+				$location.path("/corredores");
 			});
 		}
 	};
