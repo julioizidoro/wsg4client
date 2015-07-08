@@ -8,6 +8,11 @@ $app.controller('corridasController',function ($scope,$http,$routeParams,$locati
 	//uma corrida
 	$scope.row = null;
 
+	$scope.statusCorrida = [
+		{id: 0, text: 'Ativa'},
+		{id: 1, text: 'Inativa'},
+	];
+	
 	//Pagination
 	$scope.currentPage = 0;
 	$scope.pageSize = 10;

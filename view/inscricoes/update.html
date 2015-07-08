@@ -5,13 +5,13 @@
         <div class="control-group" style="display: none;">
             <label class="control-label">Id Corrida:</label>
             <div class="controls">
-                <input name="corrida" type="text" ng-model="row.corrida" />
+                <input name="corrida" type="text" ng-model="row.corrida" ng-disabled="row.corrida != null"/>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Id Corredor:</label>
-            <div class="controls">
-                <input name="corredor" required type="text" ng-model="row.corredor" class="input-xxlarge" />
+            <div class="controls" >
+                <input name="corredor" required type="text" ng-model="row.corredor" class="input-xxlarge" ng-disabled="row.corredor != null"/>
                 <span class="help-inline text-error" ng-show="form.nome.$dirty && form.nome.$invalid">Campo obrigatório</span>
             </div>
         </div>
@@ -19,8 +19,8 @@
             <label class="control-label">Status Pagamento:</label>
             <div class="controls">
 				<select ng-model="row.statusPag">
-					<option value="1">Pago</option>
-					<option value="0">Pendente</option>
+					<option value="0">Pago</option>
+					<option value="1">Pendente</option>
 				</select>
             </div>
         </div>			

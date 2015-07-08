@@ -16,7 +16,7 @@
 			<tr ng-repeat="row in rows | startFrom: currentPage*pageSize| limitTo: pageSize">
 				<td><a href='#/inscricoes/{{corrida}}/corredores/{{row.corredor}}'>{{row.corrida}}</a></td>
 				<td>{{row.corredor}}</td>
-				<td>{{row.statusPag}}</td>
+				<td>{{statusPagamento[row.statusPag].text}}</td>
 			</tr>
 		</tbody>
 	</table>

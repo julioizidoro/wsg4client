@@ -7,7 +7,6 @@ $app = angular.module('wsg4client', ['ngResource']);
 $app.config(function ($routeProvider, $httpProvider) {
 //Configura o route provider
 	$routeProvider.
-		when('/', {templateUrl: 'view/main.html', controller: 'corridasController'}).
 		when('/corridas', {templateUrl: 'view/corridas/main.html', controller: 'corridasController'}).
 		when('/corridas/novo', {templateUrl: 'view/corridas/update.html', controller: 'corridasController'}).
 		when('/corridas/:id', {templateUrl: 'view/corridas/update.html', controller: 'corridasController'}).
@@ -72,7 +71,6 @@ $app.run(function ($rootScope) {
 
 });
 
-//We already have a limitTo filter built-in to angular, let's make a startFrom filter
 $app.filter('startFrom', function () {
 	return function (input, start) {
 		if (!input || !input.length) { 

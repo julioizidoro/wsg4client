@@ -9,6 +9,16 @@ $app.controller('inscricoesController',function ($scope,$http,$routeParams,$loca
 	//uma inscrição
 	$scope.row = null;
 
+	$scope.statusCorrida = [
+		{id: 0, text: 'Ativa'},
+		{id: 1, text: 'Inativa'},
+	];
+	
+	$scope.statusPagamento = [
+		{id: 0, text: 'Pago'},
+		{id: 1, text: 'Pendente'},
+	];
+	
 	//ids passados no $routeParams
 	$scope.corrida = null;
 	$scope.corredor = null;
